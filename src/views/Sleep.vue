@@ -1,6 +1,7 @@
 <template>
   <div class="sleep">
     睡眠
+    睡眠
   </div>
 </template>
 
