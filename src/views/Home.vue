@@ -1,18 +1,44 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <van-tabbar v-model="active">
+      <van-tabbar-item v-for="(item,index) in tabBarList"  icon="home-o" :to="item.to">{{item.name}}</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      active: 0,
+      tabBarList: [
+        {
+          name: '首页',
+          to:'/index'
+        },
+        {
+          name: '睡眠',
+          to:'/sleep'
+        },
+        {
+          name: '冥想',
+          to:'/med'
+        },
+        {
+          name: '音乐',
+          to:'/music'
+        },
+        {
+          name: '我的',
+          to:'/mine'
+        }
+      ]
+    }
   }
 }
 </script>
+
+<style scoped lang="scss">
+
+</style>
