@@ -3,7 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'amfe-flexible'
-
+//公共重置样式
+import './assets/style/reset.scss'
+//字体图标css引入
+import './assets/iconfont/iconfont.css'
 
 //引入vant组件
 import {
@@ -11,7 +14,12 @@ import {
     Tabbar,
     TabbarItem,
     Tab, Tabs,
-    Swipe, SwipeItem
+    Swipe, SwipeItem,
+    Field,
+    Checkbox,
+    CheckboxGroup,
+    Cell,
+    CellGroup
 } from 'vant'
 
 
@@ -22,6 +30,11 @@ Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
+Vue.use(Field);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+Vue.use(Cell);
+Vue.use(CellGroup);
 
 Vue.config.productionTip = false
 import('../src/assets/style/style.css')
