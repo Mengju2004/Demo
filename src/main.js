@@ -9,15 +9,23 @@ import 'amfe-flexible'
 import {
     Button,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Tab, Tabs,
+    Swipe, SwipeItem
 } from 'vant'
 
 
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
+Vue.use(Tab);
+Vue.use(Tabs);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
 
 Vue.config.productionTip = false
+import('../src/assets/style/style.css')
+
 
 new Vue({
     router,
