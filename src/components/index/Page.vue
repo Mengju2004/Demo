@@ -1,13 +1,11 @@
 <template>
 <!-- 首页所有内容组件都在这 -->
   <div class="page">
-    <div>
-        <div class="pageson">
+    <div style="padding-top:1px">
             <greet></greet>
             <choice></choice>
             <recommend></recommend>
             <experience></experience>
-        </div>
     </div>
   </div>
 </template>
@@ -60,7 +58,7 @@ export default {
 <style lang='scss' scoped>
 .page{
     position: absolute;
-    top: 67px;
+    top: 0px;
     left: 0;
     right: 0;
     bottom: 0px;

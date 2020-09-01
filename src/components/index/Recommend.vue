@@ -7,7 +7,7 @@
         price="7 课时 · 14877人练习"
         desc="0基础小白必备!适合零技术用户正确练习冥想,感受与心灵的第一次对话"
         title="7天基础冥想训练"
-        thumb="../../assets/indeximg/img_01.png"
+        :thumb="urlimg"
         v-for="(item, index) in 2" :key="index"
         >
             <template #tags>
@@ -19,9 +19,12 @@
 </template>
 
 <script>
+import imggg  from '../../assets/indeximg/img_01.png'
 export default {
   data() {
-    return {};
+    return {
+        urlimg: imggg
+    };
   },
 
   components: {},
@@ -52,22 +55,22 @@ export default {
         margin-right: 13px;
         .van-card__thumb{
             position: absolute;
-            margin-left: -68px;
+            margin-left: -54px;
             background: white;
+            width: 68px;
+            height: 91px;
+            
         }
         .van-card__content{
-            margin-left: 15px;
+            margin-left: 25px;
             position: absolute;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        .van-image{
-            background: white;
-        }
         .van-card__title{
             width: 109px;
-            height: 14px;
+            height: 16px;
             font-size: 15px;
             font-family: PingFang SC;
             font-weight: bold;
@@ -85,6 +88,7 @@ export default {
             overflow: visible; 
             white-space: pre-wrap; 
             text-overflow:none;
+            margin-top: 10px;
         }
         .van-card__bottom{
             margin-top:20px;
@@ -106,6 +110,7 @@ export default {
               right: -48px;
               top:19px;  
               border-radius: 7px 0 0 7px;
+              font-size: 9px;
         }
     }
 }
