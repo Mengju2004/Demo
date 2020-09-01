@@ -1,7 +1,7 @@
 <template>
 <!-- 首页所有内容组件都在这 -->
   <div class="page">
-    <div style="padding-top: 1px;">
+    <div style="padding-top:1px">
             <greet></greet>
             <choice></choice>
             <recommend></recommend>
@@ -57,7 +57,6 @@ export default {
 </script>
 <style lang='scss' scoped>
 .page{
-
     position: absolute;
     top: 0px;
     left: 0;
@@ -65,5 +64,4 @@ export default {
     bottom: 0px;
     overflow: hidden;
 }
-
 </style>
