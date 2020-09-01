@@ -17,10 +17,12 @@ import {
     Checkbox,
     CheckboxGroup,
     Cell,
-    CellGroup
+    CellGroup,
+    NavBar,
+    ActionSheet
 } from 'vant'
 
-
+Vue.use(NavBar);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
@@ -29,6 +31,7 @@ Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(Cell);
 Vue.use(CellGroup);
+Vue.use(ActionSheet);
 
 Vue.config.productionTip = false
 

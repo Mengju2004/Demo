@@ -9,8 +9,7 @@ const routes = [{
     component: () =>
         import ("@/views/Home"),
     redirect: '/index',
-    children: [
-        {
+    children: [{
             path: '/index',
             component: () =>
                 import ("@/views/Index")
@@ -29,13 +28,25 @@ const routes = [{
         }, {
             path: '/mine',
             component: () =>
-                import ("@/views/Mine")
+                import ("@/views/Mine"),
+            children: [{
+                path: '/mine',
+                redirect: '/mineinfo',
+            }, {
+                path: '/mineinfo',
+                component: () =>
+                    import ("@/components/mine/MineInfo"),
+            }, {
+                path: '/setinfo',
+                component: () =>
+                    import ("@/components/mine/SetInfo"),
+            }]
         }, {
             // 睡眠详情页  /:id未加
             path: '/sleepdetail',
             component: () =>
                 import ('../views/SleepDetail.vue')
-        },{
+        }, {
             path: '/login',
             component: () =>
                 import ('@/views/Login')
