@@ -82,7 +82,7 @@ export default {
     bottom: 0;
     background: gray;
     overflow: auto;
-    z-index: 88;
+    z-index: 200;
     font-size: 14px;
     width: 100%;
     .detail-text{

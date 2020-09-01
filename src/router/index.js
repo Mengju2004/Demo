@@ -17,7 +17,8 @@ const routes = [{
     component: () =>
         import ("@/views/Home"),
     redirect: '/index',
-    children: [{
+    children: [
+        {
             path: '/index',
             component: () =>
                 import ("@/views/Index")
@@ -43,7 +44,11 @@ const routes = [{
             path: '/sleepdetail',
             component: () =>
                 import ('../views/SleepDetail.vue')
-        },
+        },{
+            path: '/login',
+            component: () =>
+                import ('@/views/Login')
+        }
 
     ]
 }]
