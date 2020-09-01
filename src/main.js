@@ -9,13 +9,21 @@ import 'amfe-flexible'
 import {
     Button,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    PullRefresh,
+    Toast,
+    Icon,
+    NavBar
 } from 'vant'
-
 
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
+Vue.use(PullRefresh);
+Vue.use(Toast);
+Vue.use(Icon);
+Vue.use(NavBar)
+
 
 Vue.config.productionTip = false
 

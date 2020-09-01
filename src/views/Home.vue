@@ -2,7 +2,7 @@
   <div class="home">
     <router-view></router-view>
     <van-tabbar v-model="active">
-      <van-tabbar-item v-for="(item,index) in tabBarList"  icon="home-o" :to="item.to">{{item.name}}</van-tabbar-item>
+      <van-tabbar-item v-for="(item,index) in tabBarList" :key="index" icon="home-o" :to="item.to">{{item.name}}</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
