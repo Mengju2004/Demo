@@ -8,10 +8,10 @@
     <getting-started title="入门"></getting-started>
     <hot-class title="热门"></hot-class>
     <getting-started title="限时免费"></getting-started>
-    <hot-class title="放松" to="1" ></hot-class>
-    <hot-class title="专注"></hot-class>
-    <hot-class title="习惯"></hot-class>
-    <hot-class title="睡眠"></hot-class>
+    <hot-class title="放松" to="1" @Recommend="Med"></hot-class>
+    <hot-class title="专注" to="2" @Recommend="Med"></hot-class>
+    <hot-class title="习惯" to="3" @Recommend="Med"></hot-class>
+    <hot-class title="睡眠" to="4" @Recommend="Med"></hot-class>
   </div>
 </template>
 
@@ -35,7 +35,10 @@ export default {
     GettingStarted,
     HotClass
   },
-  methods:{
+  methods: {
+    Med(val) {
+      this.$emit('Meditation',val)
+    }
   }
 }
 </script>
@@ -58,6 +61,7 @@ export default {
     height: 43px;
     line-height: 43px;
     position: relative;
+
     .more {
       position: absolute;
       right: 0;

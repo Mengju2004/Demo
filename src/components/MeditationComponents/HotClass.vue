@@ -2,7 +2,7 @@
   <div class="hot">
     <div class="section-title">
       {{ title }}
-      <span class="more" v-if="hasMore">查看更多 &gt;</span>
+      <span class="more" v-if="hasMore" @click="hotClass">查看更多 &gt;</span>
     </div>
     <div class="column-item" v-for="item in 2">
       <div class="column-item-cover">
@@ -29,11 +29,12 @@ export default {
       return !!this.to
     }
   },
-  // methods: {
-  //   swiftPage() {
-  //     this.$store.dispatch('activePageChange', {index:this.to})
-  //   }
-  // }
+  methods: {
+    hotClass(){
+      console.log(this.to)
+      this.$emit('Recommend',this.to)
+    }
+  }
 }
 </script>
 

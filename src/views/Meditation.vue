@@ -7,7 +7,7 @@
       <van-swipe-item v-for="item in navBarList" :key="item.title">
         <div class="main-block">
           <keep-alive>
-            <recommend v-if="item.page===0"></recommend>
+            <recommend v-if="item.page===0" @Meditation="jump"></recommend>
             <Relax v-if="item.page===1"></Relax>
             <Focus v-if="item.page===2"></Focus>
             <Habit v-if="item.page===3"></Habit>
@@ -64,17 +64,17 @@ export default {
   },
   methods: {
     onChange(index) {
-      // this.$store.dispatch('activePageChange', {index: index})
       this.active = index
-      // this.active = this.$store.state.meditationPage
     },
-    fn(i) {
+    fn() {
       this.$refs.banner.swipeTo(this.active)
+    },
+    jump($event) {
+      this.active = Number($event);
+      this.fn()
     }
   },
-  computed: {
-
-  },
+  computed: {},
   mounted() {
     this.active = this.$store.state.meditationPage
   }
