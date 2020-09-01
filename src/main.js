@@ -20,8 +20,6 @@ import {
     CheckboxGroup,
     Cell,
     CellGroup,
-    Swipe, SwipeItem,
-    Tab, Tabs,
     Card,
     Tag 
 } from 'vant'
