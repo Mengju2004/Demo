@@ -78,7 +78,7 @@ export default {
         left: 0;
         right: 0;
         // bottom 需要更改
-        bottom: 55px;
+        bottom: 50px;
         overflow: auto;
         &::-webkit-scrollbar {
             display: none;

@@ -28,8 +28,8 @@
                         <p class="musci-time">时长<span>04:56</span></p>
                     </div>
                 </div>
-                <span v-show="playnum==index">开始播放</span>
-                <span v-show="playnum!=index">播放中</span>
+                <span v-show="playnum==index">播放中</span>
+                <span v-show="playnum!=index">开始播放</span>
               </div>
           </li>
       </nav>
