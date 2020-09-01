@@ -9,13 +9,17 @@ import 'amfe-flexible'
 import {
     Button,
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Card,
+    Tag 
 } from 'vant'
 
 
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
+Vue.use(Card);
+Vue.use(Tag);
 
 Vue.config.productionTip = false
 
