@@ -89,17 +89,8 @@ export default {
 
 <style  lang="scss">
 .home {
-  .van-tabbar {
-    background:transparent;
-  }
-  .activebgcolor{
-    background: #292929;
-  }
-  .van-tabbar__placeholder{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+  height: 100%;
+
   .van-tabbar-item {
     display: flex;
     height: 100%;
@@ -108,7 +99,6 @@ export default {
     align-items: center;
     font-size: 9px;
     font-weight: bold;
-    border: 0;
     img {
       width: 17.33px;
       height: 17.33px;
