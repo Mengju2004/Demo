@@ -17,7 +17,9 @@ import {
     Checkbox,
     CheckboxGroup,
     Cell,
-    CellGroup
+    CellGroup,
+    Swipe, SwipeItem,
+    Tab, Tabs
 } from 'vant'
 
 
@@ -29,6 +31,10 @@ Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(Cell);
 Vue.use(CellGroup);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
+Vue.use(Tab);
+Vue.use(Tabs);
 
 Vue.config.productionTip = false
 
