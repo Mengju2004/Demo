@@ -1,42 +1,51 @@
 <template>
+
   <div class="sleep">
     <!-- 头部 -->
     <header class="sleep-head">
         睡眠
     </header>
     <!-- 列表部分 -->
-    <ul class="sleep-ul">
-      <li v-for="(item, index) in 10" :key="index"  @click="sleepdetail()">
-        <!-- v-show判断哪个 -->
-        <span class="sleep-vip sleep-litag">VIP</span>
-        <span class="sleep-free sleep-litag">限免</span>
-        <div class="sleep-litext">
-          <p class="sleep-title">睡眠故事</p>
-          <p class="sleep-time">8<span>课时</span></p>
-        </div>
-      </li>
-    </ul>
-
+        <!-- <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="refresh"> -->
+      <ul class="sleep-ul">
+          <li v-for="(item, index) in 10" :key="index"  @click="sleepdetail">
+            <!-- <img src="../img/img_14_极速看图.png" alt=""> -->
+            <!-- v-show判断哪个 -->
+            <span class="sleep-vip sleep-litag">VIP</span>
+            <span class="sleep-free sleep-litag">限免</span>
+            <div class="sleep-litext">
+              <p class="sleep-title">睡眠故事</p>
+              <p class="sleep-time">8<span>课时</span></p>
+            </div>
+          </li>
+      </ul>
+       <!-- </van-pull-refresh> -->
+    
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      
+      sleeplist:[{
+
+      }],
     }
   },
   methods:{
     sleepdetail(){
       // this.$router.push('/sleepdetail'+id)
       this.$router.push('/sleepdetail')
-    }
+      // this.$router.push('/detail')
+    },
   }
 }
 </script>
 
-<style scoped lang="scss" scoped>
+<style scoped lang="scss">
       *{
         padding: 0;
         margin: 0;
@@ -63,7 +72,7 @@ export default {
         // left: 0;
       }
       .sleep-ul{
-        position: absolute;
+       position: absolute;
         padding-bottom:14px;
         top: 44px;
         left: 0;
@@ -78,14 +87,43 @@ export default {
         overflow: auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-evenly;
+        justify-content: space-evenly; 
+        // .refresh{
+        //   position: absolute;
+        //   width: 100%;
+        //   padding-bottom:14px;
+        //   top: 44px;
+        //   left: 0;
+        //   right: 0;
+        //   // bottom 需要更改
+        //   bottom: 55px;
+        //   overflow: auto;
+        //   &::-webkit-scrollbar {
+        //       display: none;
+        //   }
+        //   background:#191919;
+        //   overflow: auto;
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   justify-content: space-evenly;
+        //   .van-pull-refresh__track{
+        //     width: 100%;
+        //     height: 500px;
+        //   }
+        // }
         li{
           width: 167px;
           height: 223px;
-          background: violet;
+          // background: violet;
+          background: url(../assets/sleepimg/sleepimg1.png);
+          background-size: 167px 223px;
           border-radius: 5px;
           margin-top:14px;
           position: relative;
+          img{
+            width: 167px;
+            height: 223px;
+          }
           .sleep-litag{
             width: 29px;
             height: 16px;
@@ -116,7 +154,7 @@ export default {
             opacity: 0.8;
             border-radius: 0 0 5px 5px;
             font-size: 16px;
-            background: crimson;   
+            // background: crimson;   
             display: flex;
             flex-direction: column;           
             align-items: center;
