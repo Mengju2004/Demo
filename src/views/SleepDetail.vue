@@ -4,7 +4,8 @@
           <p class="sdetail-head">
               <van-icon name="arrow-left" class="headicon headarrow" @click="goback"/> 
               <span>
-                  <van-icon class="headicon headlike" name="like-o"  @click="like"/>
+                  <van-icon class="headicon headlike" name="like-o" v-show="like==1" @click="likechanke"/>
+                  <van-icon name="like" class="headicon headlikepink" v-show="like==2" @click="likechanke"/>
                   <van-icon class="headicon headshare" name="share" />
               </span> 
           </p>
@@ -38,7 +39,8 @@
 export default {
     data() {
         return {
-            isActive:null
+            isActive:null,
+            like:2
         }
     },
     methods:{
@@ -48,7 +50,14 @@ export default {
         changeindex(index){
             this.isActive=index
         },
-        
+        likechanke(){
+            if(this.like==2){
+                this.like=1
+            }else if(this.like==1){
+                this.like=2
+            }
+        }
+
 
     }
 }
@@ -96,6 +105,10 @@ export default {
             span{
                 margin-right: 10px;
                 .headlike{
+                    margin-right: 10px;
+                }
+                .headlikepink{
+                    color: pink;
                     margin-right: 10px;
                 }
             }
