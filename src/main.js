@@ -21,7 +21,8 @@ import {
     Cell,
     CellGroup,
     Card,
-    Tag 
+    Tag,
+    Lazyload
 } from 'vant'
 
 
@@ -43,6 +44,7 @@ Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Card);
 Vue.use(Tag);
+Vue.use(Lazyload);
 
 Vue.config.productionTip = false
 import('../src/assets/style/style.css')
