@@ -4,7 +4,7 @@
       <van-tab :title="item.title" v-for="item in navBarList" :key="item.title"></van-tab>
     </van-tabs>
     <van-swipe @change="onChange" :loop="false" ref="banner" :show-indicators="false">
-      <van-swipe-item v-for="(item,index) in navBarList" :key="item.title">
+      <van-swipe-item v-for="item in navBarList" :key="item.title">
         <div class="main-block">
           <!--          <recommend v-if="item.page===0"></recommend>-->
           <!--          <Relax v-if="item.page===1"></Relax>-->
@@ -12,7 +12,7 @@
           <!--          <Habit v-if="item.page===3"></Habit>-->
           <!--          <Sleeping v-if="item.page===4"></Sleeping>-->
           <keep-alive>
-            <component is="Recommend"></component>
+            <!-- <component is="Recommend"></component> -->
           </keep-alive>
         </div>
       </van-swipe-item>

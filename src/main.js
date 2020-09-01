@@ -19,7 +19,9 @@ import {
     Cell,
     CellGroup,
     Swipe, SwipeItem,
-    Tab, Tabs
+    Tab, Tabs,
+    Card,
+    Tag 
 } from 'vant'
 
 
@@ -35,6 +37,8 @@ Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Tab);
 Vue.use(Tabs);
+Vue.use(Card);
+Vue.use(Tag);
 
 Vue.config.productionTip = false
 
