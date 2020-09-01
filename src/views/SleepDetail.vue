@@ -28,7 +28,8 @@
                         <p class="musci-time">时长<span>04:56</span></p>
                     </div>
                 </div>
-                <span>播放按钮</span>
+                <span v-show="playnum==index">开始播放</span>
+                <span v-show="playnum!=index">播放中</span>
               </div>
           </li>
       </nav>
@@ -40,7 +41,8 @@ export default {
     data() {
         return {
             isActive:null,
-            like:2
+            like:1,
+            playnum:0
         }
     },
     methods:{
@@ -49,6 +51,7 @@ export default {
         },
         changeindex(index){
             this.isActive=index
+            this.playnum=index
         },
         likechanke(){
             if(this.like==2){
