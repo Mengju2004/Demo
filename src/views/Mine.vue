@@ -23,16 +23,16 @@
       </div>
     </div>
     <div class="take">
-      <div class="take-icon">
-        <!-- <img src="" alt=""> -->
+      <div class="take-img">
+        <img src="../assets/image/mine/huangguan.png" alt="">
       </div>
       <div class="take-text">
         <span>订阅全部内容</span>
         <p>和9万冥想用户一起练习</p>
       </div>
-      <span>></span>
+      <span class="open"></span>
     </div>
-    <div class="mine-list">
+    <div class="mine-list" >
       <van-cell title="开通会员" is-link  icon="shop-o"/>
       <van-cell title="我的卡卷" is-link  icon="shop-o"/>
       <van-cell title="邀请有理" is-link  icon="shop-o"/>
@@ -53,7 +53,12 @@
 <script>
 export default {
  data(){
-   return{}
+   return{
+     mineList1:[{
+       title:'开通会员',
+       icon:''
+     }]
+   }
  }
 };
 </script>
@@ -124,10 +129,13 @@ export default {
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    .take-icon {
-      width: 41px;
-      height: 35px;
-      border: 1px solid #ccc;
+    .take-img {
+      width: 42px;
+      height: 36px;
+      img{
+        width: 100%;
+        height: 100%;
+      }
     }
     .take-text {
       font-size: 0;
@@ -140,6 +148,12 @@ export default {
       p {
         font-size: 14px;
       }
+    }
+    .open{
+      width: 20px;
+      height: 20px;
+      background: url('../assets/image/mine/jiantou.png') no-repeat center;
+      background-size: 100%;
     }
   }
   .mine-list{
