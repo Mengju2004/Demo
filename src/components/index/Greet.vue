@@ -29,11 +29,12 @@ export default {
         .p1{
             font-size: 33px;
             color: #C4C6CC;
-            margin-top: 0;
+            margin-top: 67px;
         }
         .p2{
           font-size: 14px;
           color: white;
+          margin-top: 30px;
         }
     }
 </style>

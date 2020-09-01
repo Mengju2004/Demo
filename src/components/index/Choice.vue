@@ -1,15 +1,15 @@
 <template>
 <!-- 选项栏 -->
   <div class="option">
-    <div class="option_1">
+    <div class="option_1 opt">
       <img src="../../assets/indeximg/icon_06@3x.png" alt="">
       <p class="p1">最近练习</p>
     </div>
-    <div class="option_2">
+    <div class="option_2 opt">
       <img src="../../assets/indeximg/icon_07@3x.png" alt="">
       <p class="p2">自定义课程</p>
     </div>
-    <div class="option_3">
+    <div class="option_3 opt">
       <img src="../../assets/indeximg/icon_08@3x.png" alt="">
       <p class="p3">我的喜欢</p>
     </div>
@@ -37,10 +37,10 @@ export default {
         justify-content: space-around;
         width: 100%;
         height: 82px;
-        margin-top: 180px;
+        margin-top: 200px;
         // background: pink;
        
-        div{
+        .opt{
           width: 107px;
           height: 100%;
           background: white;
@@ -52,11 +52,12 @@ export default {
           img{
             width: 28px;
             height: 28px;
-            margin-top: 10px;
+            margin-top: 3px;
           }
           p{
             font-size: 12px;
             line-height: 8px;
+            margin-top: 10px;
           }
           .p1{
             color: #61C2BB;

@@ -27,6 +27,7 @@ export default {
 
 <style lang='scss' scoped>
   .backimg{
+        // padding-top: 67px;
     background: url('../../assets/indeximg/img_01.png');
     background-size: 100% 459px;
     background-repeat:no-repeat;
