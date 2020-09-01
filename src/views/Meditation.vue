@@ -1,6 +1,6 @@
 <template>
   <div class="meditation">
-    <van-tabs v-model="active" @click="fn" color="#30A8FD" title-active-color="#30A8FD" title-inactive-color="black">
+    <van-tabs v-model="active" @click="fn" color="#30A8FD" title-active-color="#30A8FD" title-inactive-color="#273663">
       <van-tab :title="item.title" v-for="item in navBarList" :key="item.title"></van-tab>
     </van-tabs>
     <van-swipe @change="onChange" :loop="false" ref="banner" :show-indicators="false">
@@ -64,13 +64,20 @@ export default {
   },
   methods: {
     onChange(index) {
+      // this.$store.dispatch('activePageChange', {index: index})
       this.active = index
+      // this.active = this.$store.state.meditationPage
     },
     fn(i) {
       this.$refs.banner.swipeTo(this.active)
     }
   },
-  computed: {}
+  computed: {
+
+  },
+  mounted() {
+    this.active = this.$store.state.meditationPage
+  }
 }
 </script>
 
@@ -82,20 +89,6 @@ export default {
   left: 0;
   right: 0;
 
-  .van-tab {
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 6px;
-    font-size: 16px;
-    font-weight: 300;
-  }
-
-
-  .van-tab--active {
-    font-weight: 400;
-    font-size: 19px;
-  }
 
   .van-swipe {
     position: absolute;
@@ -116,5 +109,19 @@ export default {
   }
 }
 
+.van-tab {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 6px;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+
+.van-tab--active {
+  font-weight: 400;
+  font-size: 19px;
+}
 
 </style>
