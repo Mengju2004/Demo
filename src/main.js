@@ -16,7 +16,8 @@ import {
     Button,
     Tabbar,
     TabbarItem,
-    Tab, Tabs,
+    Tab,
+    Tabs,
     Field,
     Checkbox,
     CheckboxGroup,
@@ -30,20 +31,10 @@ import {
     PullRefresh,
     Toast,
     Icon,
-<<<<<<< HEAD
-
-} from 'vant'
-
-Vue.use(Tabbar);
-Vue.use(TabbarItem);
-Vue.use(NavBar);
-=======
     NavBar,
     Lazyload,
     Empty
 } from 'vant'
-
->>>>>>> master
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
@@ -66,12 +57,10 @@ Vue.use(Toast);
 Vue.use(Icon);
 Vue.use(NavBar);
 Vue.use(Lazyload);
-
-Vue.use(NavBar);
 Vue.use(Empty);
 
 Vue.config.productionTip = false
-import('../src/assets/style/style.css')
+import ('../src/assets/style/style.css')
 
 
 new Vue({

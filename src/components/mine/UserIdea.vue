@@ -43,7 +43,7 @@ MineTitle,
            margin-top: 20px;
            font-size: 14px;
            color: #b6bbc1;
-           height: 100%;
+           
        }
     }
 </style>

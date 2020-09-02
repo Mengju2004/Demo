@@ -63,24 +63,28 @@ const routes = [
                 path: '/mine',
                 component: () =>
                     import ("@/views/Mine"),
-                children: [{
-                    path: '/mine',
-                    redirect: '/mineinfo',
-                }, {
-                    path: '/mineinfo',
-                    component: () =>
-                        import ("@/components/mine/MineInfo"),
-                }, {
-                    path: '/setinfo',
-                    component: () =>
-                        import ("@/components/mine/SetInfo"),
-                }]
+
             }, {
                 path: '/login',
                 component: () =>
                     import ('@/views/Login')
             }
         ]
+    }, {
+        // 会员开头页面
+        path: '/openvip',
+        component: () =>
+            import ("@/components/mine/OpenVip"),
+    }, {
+        // 用户信息设置页面
+        path: '/setinfo',
+        component: () =>
+            import ("@/components/mine/SetInfo"),
+    }, {
+        // 用户设置页面
+        path: '/userset',
+        component: () =>
+            import ("@/components/mine/UserSet"),
     }
 ]
 
