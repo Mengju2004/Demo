@@ -44,12 +44,6 @@ const routes = [{
             component: () =>
                 import ("@/views/Mine")
         },
-        // {
-        //     // 睡眠详情页  /:id未加
-        //     path: '/sleepdetail',
-        //     component: () =>
-        //         import ('../views/SleepDetail.vue')
-        // },
         {
             path: '/login',
             component: () =>
