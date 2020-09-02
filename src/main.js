@@ -27,7 +27,8 @@ import {
     Toast,
     Icon,
     NavBar,
-    Lazyload
+    Lazyload,
+    Empty
 } from 'vant'
 
 Vue.use(Tabbar);
@@ -54,6 +55,8 @@ Vue.use(Icon);
 Vue.use(NavBar);
 Vue.use(Lazyload);
 
+Vue.use(NavBar);
+Vue.use(Empty);
 
 Vue.config.productionTip = false
 import('../src/assets/style/style.css')
