@@ -54,7 +54,19 @@ const routes = [
                 component: () => import ("@/views/Music")
             }, {
                 path: '/mine',
-                component: () => import ("@/views/Mine")
+                component: () => import ("@/views/Mine"),
+                children: [{
+                    path: '/mine',
+                    redirect: '/mineinfo',
+                }, {
+                    path: '/mineinfo',
+                    component: () =>
+                        import ("@/components/mine/MineInfo"),
+                }, {
+                    path: '/setinfo',
+                    component: () =>
+                        import ("@/components/mine/SetInfo"),
+                }]
             }, {
                 path: '/login',
                 component: () => import ('@/views/Login')

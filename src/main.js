@@ -19,6 +19,7 @@ import {
     CheckboxGroup,
     Cell,
     CellGroup,
+    ActionSheet,
     Swipe,
     SwipeItem,
     Card,
@@ -43,8 +44,7 @@ Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(Cell);
 Vue.use(CellGroup);
-Vue.use(Swipe);
-Vue.use(SwipeItem);
+Vue.use(ActionSheet);
 Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Card);

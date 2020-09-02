@@ -135,9 +135,6 @@ export default {
     }
   }
 
-  .van-swipe__indicator {
-
-  }
 
   .van-swipe__indicator--active {
     width: 10px;
