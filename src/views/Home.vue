@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <router-view></router-view>
-    <van-tabbar v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
-                :safe-area-inset-bottom="true" :placeholder="true">
+    <van-tabbar route v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
+                :safe-area-inset-bottom="true" :placeholder="true" v-bind:class="{ activebgcolor: isActive==1}">
       <van-tabbar-item v-for="(item,index) in tabBarList" :key="index" :to="item.to" >
         <span>{{ item.name }}</span>
         <template #icon="props">
@@ -82,6 +82,8 @@ export default {
 
 <style  lang="scss" scoped>
 .home {
+  height: 100%;
+
   .van-tabbar-item {
     display: flex;
     height: 100%;
@@ -90,7 +92,6 @@ export default {
     align-items: center;
     font-size: 9px;
     font-weight: bold;
-    border: 0;
     img {
       width: 17.33px;
       height: 17.33px;

@@ -1,18 +1,17 @@
 <template>
   <div class="meditation">
-    <van-tabs v-model="active" @click="fn" color="#30A8FD" title-active-color="#30A8FD" title-inactive-color="black">
+    <van-tabs v-model="active" @click="fn" color="#30A8FD" title-active-color="#30A8FD" title-inactive-color="#273663">
       <van-tab :title="item.title" v-for="item in navBarList" :key="item.title"></van-tab>
     </van-tabs>
     <van-swipe @change="onChange" :loop="false" ref="banner" :show-indicators="false">
       <van-swipe-item v-for="item in navBarList" :key="item.title">
         <div class="main-block">
-          <!--          <recommend v-if="item.page===0"></recommend>-->
-          <!--          <Relax v-if="item.page===1"></Relax>-->
-          <!--          <Focus v-if="item.page===2"></Focus>-->
-          <!--          <Habit v-if="item.page===3"></Habit>-->
-          <!--          <Sleeping v-if="item.page===4"></Sleeping>-->
           <keep-alive>
-            <!-- <component is="Recommend"></component> -->
+            <recommend v-if="item.page===0" @Meditation="jump"></recommend>
+            <Relax v-if="item.page===1"></Relax>
+            <Focus v-if="item.page===2"></Focus>
+            <Habit v-if="item.page===3"></Habit>
+            <Sleeping v-if="item.page===4"></Sleeping>
           </keep-alive>
         </div>
       </van-swipe-item>
@@ -41,41 +40,45 @@ export default {
       navBarList: [
         {
           title: '推荐',
-          page: 'Recommend',
+          page: 0,
 
         },
         {
           title: '放松',
-          page: 'Relax'
+          page: 1
         },
         {
           title: '专注',
-          page: 'Focus'
+          page: 2
         },
         {
           title: '习惯',
-          page: 'Habit'
+          page: 3
         },
         {
           title: '睡眠',
-          page: 'Sleeping'
+          page: 4
         }
       ]
     };
   },
   methods: {
     onChange(index) {
-      console.log(index);
       this.active = index
     },
-    fn(i) {
+    fn() {
       this.$refs.banner.swipeTo(this.active)
+    },
+    jump($event) {
+      this.active = Number($event);
+      this.fn()
     }
   },
+  computed: {},
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .meditation {
   position: absolute;
   top: 0;
@@ -83,19 +86,6 @@ export default {
   left: 0;
   right: 0;
 
-  .van-tab {
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 6px;
-    font-size: 16px;
-    font-weight: 300;
-  }
-
-  .van-tab--active {
-    font-weight: 400;
-    font-size: 19px;
-  }
 
   .van-swipe {
     position: absolute;
@@ -105,7 +95,7 @@ export default {
     right: 0;
     box-sizing: border-box;
     padding: 10px;
-    background-color: #5EC0FE;
+    //background-color: #5EC0FE;
   }
 
   .main-block {
@@ -116,5 +106,19 @@ export default {
   }
 }
 
+.van-tab {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 6px;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+
+.van-tab--active {
+  font-weight: 400;
+  font-size: 19px;
+}
 
 </style>
