@@ -80,7 +80,7 @@ export default {
 
             const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
 
-            //邮箱码为空
+            //邮箱为空
             if (this.tel == '') {
                 Toast({
                     message: '请输入邮箱',
@@ -88,7 +88,7 @@ export default {
                 });
             } else if (!reg.test(this.tel)) { //手机号格式错误
                 Toast({
-                    message: '邮箱格式错误，英文字母、数字、下划线、英文句号、以及中划线',
+                    message: '邮箱格式错误，如：12345@xx.com',
                     position: 'bottom',
                     duration: 3000
                 });

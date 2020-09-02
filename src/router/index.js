@@ -1,6 +1,14 @@
+// import Vue from 'vue'
+// import VueRouter from 'vue-router'
+
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+//import HelloWorld from '@/components/HelloWorld'
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch(err => err)
+}
 
 Vue.use(VueRouter)
 
@@ -29,7 +37,8 @@ const routes = [{
                 path: '/mine',
                 component: () =>
                     import ("@/views/Mine")
-            }, {
+            },
+            {
                 // 睡眠详情页  /:id未加
                 path: '/sleepdetail',
                 component: () =>
