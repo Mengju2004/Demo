@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <router-view></router-view>
-    <van-tabbar v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
+    <van-tabbar route v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
                 :safe-area-inset-bottom="true" :placeholder="true" v-bind:class="{ activebgcolor: isActive==1}">
       <van-tabbar-item v-for="(item,index) in tabBarList" :key="index" :to="item.to" @click="changeBg(index)" >
         <span>{{ item.name }}</span>
