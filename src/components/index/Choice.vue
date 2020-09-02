@@ -1,25 +1,49 @@
 <template>
 <!-- 选项栏 -->
   <div class="option">
-    <div class="option_1 opt">
-      <img src="../../assets/indeximg/icon_06@3x.png" alt="">
-      <p class="p1">最近练习</p>
-    </div>
-    <div class="option_2 opt">
-      <img src="../../assets/indeximg/icon_07@3x.png" alt="">
-      <p class="p2">自定义课程</p>
-    </div>
-    <div class="option_3 opt">
-      <img src="../../assets/indeximg/icon_08@3x.png" alt="">
-      <p class="p3">我的喜欢</p>
-    </div>
+      <router-link class="option_1 opt" v-for="(item,index) in list" :key="index" :to="item.to" tag="div">
+        <img :src="item.img" alt="">
+        <p :class="item.class">{{item.cont}}</p>
+      </router-link>
+      <!-- <div class="option_2 opt" :to="list[1].to">
+        <img src="../../assets/indeximg/icon_07@3x.png" alt="">
+        <p class="p2">自定义课程</p>
+      </div>
+      <div class="option_3 opt" :to="list[2].to">
+        <img src="../../assets/indeximg/icon_08@3x.png" alt="">
+        <p class="p3">我的喜欢</p>
+      </div> -->
   </div>
 </template>
 
 <script>
+import recent from '../../assets/indeximg/icon_06@3x.png'
+import custom from '../../assets/indeximg/icon_07@3x.png'
+import mylike from '../../assets/indeximg/icon_08@3x.png'
 export default {
   data() {
-    return {};
+    return {
+        list:[
+          {
+            img:recent,
+            to:'/index/recent',
+            cont:'最近练习',
+            class:'p1'
+          },
+          {
+            img:custom,
+            to:'/index/custom',
+            cont:'自定义课程',
+            class:'p2'
+          },
+          {
+            img:mylike,
+            to:'/index/mylike',
+            cont:'我的喜欢',
+            class:'p3'
+          }
+        ]
+    };
   },
 
   components: {},

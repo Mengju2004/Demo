@@ -13,7 +13,7 @@ const routes = [{
         {
             path: '/index',
             component: () =>
-                import ("@/views/Index")
+                import ("@/views/Index"),
         }, {
             path: '/sleep',
             component: () =>
