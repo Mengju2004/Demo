@@ -6,21 +6,21 @@
         睡眠
     </header>
     <!-- 列表部分 -->
-        <!-- <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="refresh"> -->
-      <ul class="sleep-ul">
-          <li v-for="(item, index) in 10" :key="index"  @click="sleepdetail">
-            <!-- <img src="../img/img_14_极速看图.png" alt=""> -->
-            <!-- v-show判断哪个 -->
-            <span class="sleep-vip sleep-litag">VIP</span>
-            <span class="sleep-free sleep-litag">限免</span>
-            <div class="sleep-litext">
-              <p class="sleep-title">睡眠故事</p>
-              <p class="sleep-time">8<span>课时</span></p>
-            </div>
-          </li>
-      </ul>
-       <!-- </van-pull-refresh> -->
-      
+        <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="refresh">
+          <ul class="sleep-ul">        
+              <li v-for="(item, index) in 10" :key="index"  @click="sleepdetail">
+                <!-- <img src="../img/img_14_极速看图.png" alt=""> -->
+                <!-- v-show判断哪个 -->
+                <span class="sleep-vip sleep-litag">VIP</span>
+                <span class="sleep-free sleep-litag">限免</span>
+                <div class="sleep-litext">
+                  <p class="sleep-title">睡眠故事</p>
+                  <p class="sleep-time">8<span>课时</span></p>
+                </div>
+              </li>
+          </ul>
+        </van-pull-refresh>
+      <!-- 路由过度 -->
       <transition :name="transitionName">
         <router-view class="view"></router-view>
       </transition>    
@@ -28,14 +28,16 @@
 </template>
 
 <script>
-
+import { Toast } from 'vant';
 export default {
   data() {
     return {
       sleeplist:[{
 
       }],
-      transitionName:''
+      transitionName:'',
+      count: 0,
+      isLoading: false,
     }
   },
   watch: {//使用watch 监听$router的变化
@@ -53,17 +55,25 @@ export default {
     sleepdetail(){
       // this.$router.push('/sleepdetail'+id)
       // this.$router.push('/sleepdetail')
+      // this.$router.push('/sleep/detail'+id)
       this.$router.push('/sleep/detail')
     },
+    onRefresh() {
+      setTimeout(() => {
+        Toast('刷新成功');
+        this.isLoading = false;
+        this.count++;
+      }, 1000);
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-      *{
-        padding: 0;
-        margin: 0;
-      }
+    *{
+      padding: 0;
+      margin: 0;
+    }
     .sleep{
       position: absolute;
       top: 0;
@@ -115,8 +125,9 @@ export default {
         // top: 0;
         // left: 0;
       }
-      .sleep-ul{
-       position: absolute;
+      // 下拉刷新css
+      .refresh{
+        position: absolute;
         padding-bottom:14px;
         top: 43px;
         left: 0;
@@ -127,6 +138,20 @@ export default {
         &::-webkit-scrollbar {
             display: none;
         }
+        background:#191919;
+      }
+      .sleep-ul{
+      //  position: absolute;
+      //   top: 43px;
+      //   left: 0;
+      //   right: 0;
+      //   // bottom 需要更改
+      //   bottom: 49px;
+      //   overflow: auto;
+      //   &::-webkit-scrollbar {
+      //       display: none;
+      //   }
+        padding-bottom:14px;
         background:#191919;
         overflow: auto;
         display: flex;
