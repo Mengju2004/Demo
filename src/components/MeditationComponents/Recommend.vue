@@ -1,54 +1,117 @@
 <template>
   <div class="recommend">
-    <van-swipe indicator-color="#FFFFFF">
+    <van-swipe indicator-color="#FFFFFF" autoplay="3000">
       <van-swipe-item v-for="(image, index) in images" :key="index">
         <img v-lazy="image"/>
       </van-swipe-item>
     </van-swipe>
-    <getting-started title="入门"></getting-started>
-    <hot-class title="热门"></hot-class>
-    <getting-started title="限时免费"></getting-started>
-    <hot-class title="放松" to="1" @Recommend="Med"></hot-class>
-    <hot-class title="专注" to="2" @Recommend="Med"></hot-class>
-    <hot-class title="习惯" to="3" @Recommend="Med"></hot-class>
-    <hot-class title="睡眠" to="4" @Recommend="Med"></hot-class>
+    <getting-started title="入门" :courseList="startCourse"></getting-started>
+    <column-item :column-course="hotCourse" title="热门"></column-item>
+    <getting-started title="限时免费" :courseList="limitTimeCourse"></getting-started>
+    <column-item :columnCourse="item.data"
+                 :title="item.title"
+                 :to="item.to"
+                 @Recommend="Med"
+                 v-for="item in sectionList"
+                 :key="item.to"
+    ></column-item>
   </div>
 </template>
 
 <script>
 import GettingStarted from "@/components/MeditationComponents/GettingStarted";
-import HotClass from "@/components/MeditationComponents/HotClass";
+import ColumnItem from "@/components/MeditationComponents/ColumnItem";
+import axios from 'axios'
 
 export default {
   name: "Recommend",
   data() {
     return {
-      images: [
-        'https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=644397205,1235585350&fm=179&app=42&f=JPEG?w=121&h=140&s=32D7A9764E734C8654E7A9FB02009039',
-        'https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/20a2b33533fa828b5baaa7dffa1f4134960a5a99.jpg',
-        'https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=644397205,1235585350&fm=179&app=42&f=JPEG?w=121&h=140&s=32D7A9764E734C8654E7A9FB02009039',
-        'https://dss1.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/20a2b33533fa828b5baaa7dffa1f4134960a5a99.jpg',
-      ],
+      images: [],
+      startCourse: [],
+      limitTimeCourse: [],
+      hotCourse: [],
     }
   },
   components: {
+    ColumnItem,
     GettingStarted,
-    HotClass
+  },
+  computed: {
+    sectionList() {
+      return [
+        {
+          title: '放松',
+          data: this.$store.state.relaxCourse.slice(0, 2),
+          to: 1
+        }, {
+          title: '专注',
+          data: this.$store.state.focusCourse.slice(0, 2),
+          to: 2
+        }, {
+          title: '习惯',
+          data: this.$store.state.habitCourse.slice(0, 2),
+          to: 3
+        }, {
+          title: '睡眠',
+          data: this.$store.state.sleepCourse.slice(0, 2),
+          to: 4
+        }
+      ]
+    }
   },
   methods: {
     Med(val) {
-      this.$emit('Meditation',val)
+      this.$emit('Meditation', val)
+    },
+    async getImages() {
+      this.images = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/banner').then(data => data.data.result.list);
+    },
+    async getStartedCourse() {
+      this.startCourse = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/start').then(data => data.data.result.list)
+    },
+    async getLimitTimeCourse() {
+      this.limitTimeCourse = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/limit').then(data => data.data.result.list)
+    },
+    async getHotCourse() {
+      this.hotCourse = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/hot').then(data => data.data.result.list)
+    },
+    async getRelaxCourse() {
+      const result = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/relax').then(data => data.data.result.list);
+      this.$store.commit('relaxCourse', {result})
+    },
+    async getFocusCourse() {
+      const result = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/focus').then(data => data.data.result.list);
+      this.$store.commit('focusCourse', {result})
+    },
+    async getHabitCourse() {
+      const result = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/habit').then(data => data.data.result.list)
+      this.$store.commit('habitCourse', {result})
+    },
+    async getSleepCourse() {
+      const result = await axios.get('https://www.fastmock.site/mock/04f036f2da6e297714889b73c9cf3746/demo/sleep').then(data => data.data.result.list)
+      this.$store.commit('sleepingCourse', {result})
     }
-  }
+  },
+  created() {
+    this.getImages();
+    this.getStartedCourse();
+    this.getLimitTimeCourse();
+    this.getHotCourse();
+    this.getRelaxCourse();
+    this.getFocusCourse();
+    this.getHabitCourse();
+    this.getSleepCourse()
+  },
 }
 </script>
 
 <style lang="scss">
 .recommend {
   flex-direction: column;
-  align-items: center;
   height: 100%;
   overflow: auto;
+  align-items: center;
 
   &::-webkit-scrollbar {
     display: none;
@@ -84,7 +147,7 @@ export default {
 
 
   .van-swipe {
-    width: 346px;
+    width: 100%;
     height: 151px;
     border-radius: 5px;
     margin-bottom: 17px;

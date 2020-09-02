@@ -1,4 +1,7 @@
 const state = {
-    meditationPage:0
+    relaxCourse:[],
+    focusCourse:[],
+    habitCourse:[],
+    sleepCourse:[]
 }
 export default state
