@@ -19,7 +19,16 @@ import {
     Cell,
     CellGroup,
     NavBar,
-    ActionSheet
+    ActionSheet,
+    Swipe,
+    SwipeItem,
+    Tab,
+    Tabs,
+    Card,
+    Tag,
+    PullRefresh,
+    Toast,
+    Icon,
 } from 'vant'
 
 Vue.use(NavBar);
@@ -32,6 +41,17 @@ Vue.use(CheckboxGroup);
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(ActionSheet);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
+Vue.use(Tab);
+Vue.use(Tabs);
+Vue.use(Card);
+Vue.use(Tag);
+Vue.use(PullRefresh);
+Vue.use(Toast);
+Vue.use(Icon);
+Vue.use(NavBar)
+
 
 Vue.config.productionTip = false
 
