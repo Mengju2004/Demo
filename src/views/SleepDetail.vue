@@ -42,7 +42,7 @@ export default {
         return {
             isActive:null,
             like:1,
-            playnum:0
+            playnum:null
         }
     },
     methods:{

@@ -20,8 +20,10 @@
           </li>
       </ul>
        <!-- </van-pull-refresh> -->
-    
-    <router-view></router-view>
+      
+      <transition :name="transitionName">
+        <router-view class="view"></router-view>
+      </transition>    
   </div>
 </template>
 
@@ -33,13 +35,25 @@ export default {
       sleeplist:[{
 
       }],
+      transitionName:''
     }
   },
+  watch: {//使用watch 监听$router的变化
+      $route(to, from) {
+        //如果to索引大于from索引,判断为前进状态,反之则为后退状态
+        if(to.meta.index > from.meta.index){
+  	    //设置动画名称
+          this.transitionName = 'slide-left';
+        }else{
+          this.transitionName = 'slide-right';
+        }
+      }
+    },
   methods:{
     sleepdetail(){
       // this.$router.push('/sleepdetail'+id)
-      this.$router.push('/sleepdetail')
-      // this.$router.push('/detail')
+      // this.$router.push('/sleepdetail')
+      this.$router.push('/sleep/detail')
     },
   }
 }
@@ -56,6 +70,36 @@ export default {
       bottom: 0;
       left: 0;
       right: 0;
+      // 过度效果css-----------------------------------------------
+      .view {
+          width: 100%;
+          position: absolute;
+        }
+        .slide-right-enter-active,
+        .slide-right-leave-active,
+        .slide-left-enter-active,
+        .slide-left-leave-active {
+          will-change: transform;
+          transition: all 300ms;
+          position: absolute;
+        }
+        .slide-right-enter {
+          // opacity: 0;
+          transform: translate3d(100%, 0, 0);
+        }
+        .slide-right-leave-active {
+          // opacity: 0;
+          transform: translate3d(100%, 0, 0);
+        }
+        .slide-left-enter {
+          // opacity: 0;
+          transform: translate3d(100%, 0, 0);
+        }
+        .slide-left-leave-active {
+          // opacity: 0;
+          transform: translate3d(100%, 0, 0);
+        }
+      // -------------------------------------------------
       .sleep-head{
         display: flex;
         align-items: center;
@@ -74,11 +118,11 @@ export default {
       .sleep-ul{
        position: absolute;
         padding-bottom:14px;
-        top: 44px;
+        top: 43px;
         left: 0;
         right: 0;
         // bottom 需要更改
-        bottom: 50px;
+        bottom: 49px;
         overflow: auto;
         &::-webkit-scrollbar {
             display: none;
@@ -88,29 +132,6 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-evenly; 
-        // .refresh{
-        //   position: absolute;
-        //   width: 100%;
-        //   padding-bottom:14px;
-        //   top: 44px;
-        //   left: 0;
-        //   right: 0;
-        //   // bottom 需要更改
-        //   bottom: 55px;
-        //   overflow: auto;
-        //   &::-webkit-scrollbar {
-        //       display: none;
-        //   }
-        //   background:#191919;
-        //   overflow: auto;
-        //   display: flex;
-        //   flex-wrap: wrap;
-        //   justify-content: space-evenly;
-        //   .van-pull-refresh__track{
-        //     width: 100%;
-        //     height: 500px;
-        //   }
-        // }
         li{
           width: 167px;
           height: 223px;

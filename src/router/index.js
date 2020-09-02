@@ -17,8 +17,7 @@ const routes = [{
     component: () =>
         import ("@/views/Home"),
     redirect: '/index',
-    children: [
-        {
+    children: [{
             path: '/index',
             component: () =>
                 import ("@/views/Index")
@@ -26,6 +25,12 @@ const routes = [{
             path: '/sleep',
             component: () =>
                 import ("@/views/Sleep"),
+            children: [{
+                // 睡眠详情页  /:id未加
+                path: 'detail',
+                component: () =>
+                    import ('../views/SleepDetail.vue'),
+            }]
         }, {
             path: '/med',
             component: () =>
@@ -39,12 +44,13 @@ const routes = [{
             component: () =>
                 import ("@/views/Mine")
         },
+        // {
+        //     // 睡眠详情页  /:id未加
+        //     path: '/sleepdetail',
+        //     component: () =>
+        //         import ('../views/SleepDetail.vue')
+        // },
         {
-            // 睡眠详情页  /:id未加
-            path: '/sleepdetail',
-            component: () =>
-                import ('../views/SleepDetail.vue')
-        },{
             path: '/login',
             component: () =>
                 import ('@/views/Login')
