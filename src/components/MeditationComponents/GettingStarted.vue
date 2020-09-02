@@ -2,7 +2,7 @@
   <div class="start">
     <p class="section-title">{{ title }}</p>
     <div class="start-list">
-      <div class="start-item" v-for="item in courseList ">
+      <div class="start-item" v-for="(item,index) in courseList " :key="index">
         <div class="fee-label vip" v-if="item.price===2">VIP</div>
         <div class="fee-label free" v-else>免费</div>
         <img
@@ -35,7 +35,7 @@ export default {
     height: 100%;
     display: flex;
     overflow-x: scroll;
-    //overscroll-behavior: contain;
+    // overscroll-behavior: contain;
 
     &::-webkit-scrollbar {
       display: none;
