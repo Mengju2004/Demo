@@ -1,14 +1,22 @@
 <template>
-  <div>最近练习</div>
+  <div>
+        <indexhead :title="title"></indexhead>
+        <van-empty description="最近没有练习的内容" />
+  </div>
 </template>
 
 <script>
+import indexhead from '../public/Head'
 export default {
   data() {
-    return {};
+    return {
+      title:'最近练习'
+    };
   },
 
-  components: {},
+  components: {
+    indexhead,
+  },
 
   computed: {},
 

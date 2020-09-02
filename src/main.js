@@ -21,7 +21,9 @@ import {
     Swipe, SwipeItem,
     Tab, Tabs,
     Card,
-    Tag 
+    Tag,
+    NavBar, 
+    Empty
 } from 'vant'
 
 
@@ -39,6 +41,8 @@ Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Card);
 Vue.use(Tag);
+Vue.use(NavBar);
+Vue.use(Empty);
 
 Vue.config.productionTip = false
 

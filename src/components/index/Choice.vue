@@ -26,19 +26,19 @@ export default {
         list:[
           {
             img:recent,
-            to:'/index/recent',
+            to:'/recent',
             cont:'最近练习',
             class:'p1'
           },
           {
             img:custom,
-            to:'/index/custom',
+            to:'/custom',
             cont:'自定义课程',
             class:'p2'
           },
           {
             img:mylike,
-            to:'/index/mylike',
+            to:'/mylike',
             cont:'我的喜欢',
             class:'p3'
           }
