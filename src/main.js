@@ -5,6 +5,9 @@ import store from './store'
 import 'amfe-flexible'
 //公共重置样式
 import './assets/style/reset.scss'
+// 组件修改样式
+import './assets/style/common.scss'
+
 //字体图标css引入
 import './assets/iconfont/iconfont.css'
 
@@ -29,8 +32,11 @@ import {
     PullRefresh,
     Toast,
     Icon,
+
 } from 'vant'
 
+Vue.use(Tabbar);
+Vue.use(TabbarItem);
 Vue.use(NavBar);
 Vue.use(Tabbar);
 Vue.use(TabbarItem);

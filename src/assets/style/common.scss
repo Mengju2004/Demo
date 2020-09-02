@@ -1,0 +1,12 @@
+// 开通会员页头部
+.open-vip {
+    .van-nav-bar {
+        background: #000;
+        .van-nav-bar__title {
+            color: #fff;
+        }
+        .van-icon-arrow-left::before {
+            color: #fff;
+        }
+    }
+}

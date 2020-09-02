@@ -48,6 +48,18 @@ const routes = [{
                 path: '/setinfo',
                 component: () =>
                     import ("@/components/mine/SetInfo"),
+            }, {
+                path: '/userset',
+                component: () =>
+                    import ("@/components/mine/UserSet"),
+            }, {
+                path: '/useridea',
+                component: () =>
+                    import ("@/components/mine/UserIdea"),
+            }, {
+                path: '/openvip',
+                component: () =>
+                    import ("@/components/mine/OpenVip"),
             }]
         }, {
             // 睡眠详情页  /:id未加

@@ -1,9 +1,6 @@
 <template>
   <div class="setinfo">
-    <van-nav-bar
-      title="个人信息"
-      right-text="保存"
-      left-arrow
+    <van-nav-bar title="个人信息" right-text="保存" left-arrow
       @click-left="onClickLeft"
       @click-right="onClickRight"
     />
