@@ -3,11 +3,7 @@
     <router-view></router-view>
     <van-tabbar v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
                 :safe-area-inset-bottom="true" :placeholder="true">
-<<<<<<< HEAD
-      <van-tabbar-item v-for="(item,index) in tabBarList" icon="home-o" :to="item.to" :key='index'>
-=======
       <van-tabbar-item v-for="(item,index) in tabBarList" :key="index"  :to="item.to">
->>>>>>> master
         <span>{{ item.name }}</span>
         <template #icon="props">
           <img :src="props.active ? item.icon.active : item.icon.inactive"/>
