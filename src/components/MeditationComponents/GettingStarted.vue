@@ -1,33 +1,34 @@
 <template>
   <div class="start">
-    <p class="section-title">{{title}}</p>
+    <p class="section-title">{{ title }}</p>
     <div class="start-list">
-      <div class="start-item" v-for="item in 6 ">
-        <div class="fee-label vip" v-if="item===3">VIP</div>
+      <div class="start-item" v-for="item in courseList ">
+        <div class="fee-label vip" v-if="item.price===2">VIP</div>
         <div class="fee-label free" v-else>免费</div>
         <img
-            src="https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=644397205,1235585350&fm=179&app=42&f=JPEG?w=121&h=140&s=32D7A9764E734C8654E7A9FB02009039"
-            alt="">
-        <p class="class-title">7天基础冥想训练7天基础冥想训练</p>
-        <p class="class-hour">7课时</p>
+            :src=item.imgUrl alt="">
+        <p class="class-title">{{item.className}}</p>
+        <p class="class-hour">{{item.classTime}}课时</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: "GettingStarted",
-  props:{
-    title:String
-  }
+  props: {
+    title: String,
+    courseList: Array
+  },
+
 }
 </script>
 
 <style scoped lang="scss">
 .start {
-  width: 349px;
-  //margin-top: 17px;
+  width: 100%;
 
   .start-list {
     padding-bottom: 5px;

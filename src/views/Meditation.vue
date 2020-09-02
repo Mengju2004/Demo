@@ -75,9 +75,6 @@ export default {
     }
   },
   computed: {},
-  mounted() {
-    this.active = this.$store.state.meditationPage
-  }
 }
 </script>
 
