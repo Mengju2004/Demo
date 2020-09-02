@@ -63,6 +63,7 @@ export default {
         }
     },
     methods: {
+        // 点击叉号返回上一界面
         backMine() {
             this.$router.go(-1)
         },
