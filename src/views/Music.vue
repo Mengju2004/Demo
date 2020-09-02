@@ -6,7 +6,7 @@
        <div class="MusicPicturetop" @click="translate">
         <div class="MusicList">
            <div class="MusicListleft">
-           <img src="../assets/imges/img_40.png" alt="">
+           <img src="../assets/images/img_40.png" alt="">
            </div>
            <div class="Playkey">
              <div class="Playkeyleft">
@@ -24,14 +24,14 @@
      <div class="MusicPictureBottom">
         <div class="MusicList" v-for="item in 10">
            <div class="MusicListleft">
-             <img src="../assets/imges/img_40.png" alt="">
+             <img src="../assets/images/img_40.png" alt="">
            </div>
            <div class="Playkey">
              <div class="Playkeyleft">
                <p>
                 <span class="Playkeyname">雨打树叶</span>
                 <!-- <span class="FreeAdmission">免费</span> -->
-                <img src="../assets/imges/1.png" alt="">
+                <img src="../assets/images/1.png" alt="">
                </p>
                 <p class="describe">大自然白噪音</p>
              </div>
