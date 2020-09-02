@@ -1,0 +1,19 @@
+.van-tabbar__placeholder {
+  width: 100%;
+  position: fixed;
+  bottom: 0; }
+
+.van-swipe__track {
+  height: 100%; }
+
+.my-swipe .van-swipe-item {
+  border: 1px solid black;
+  width: 350px;
+  height: 800px;
+  color: black;
+  font-size: 20px;
+  line-height: 150px;
+  text-align: center;
+  background-color: white; }
+
+/*# sourceMappingURL=style.css.map */

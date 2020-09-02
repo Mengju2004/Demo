@@ -12,68 +12,77 @@ VueRouter.prototype.push = function push(location) {
 
 Vue.use(VueRouter)
 
-const routes = [{
-    path: '/',
-    component: () =>
-        import ("@/views/Home"),
-    redirect: '/index',
-    children: [{
-            path: '/index',
-            component: () =>
-                import ("@/views/Index")
-        }, {
-            path: '/sleep',
-            component: () =>
-                import ("@/views/Sleep"),
-        }, {
-            path: '/med',
-            component: () =>
-                import ("@/views/Meditation")
-        }, {
-            path: '/music',
-            component: () =>
-                import ("@/views/Music")
-        }, {
-            path: '/mine',
-            component: () =>
-                import ("@/views/Mine"),
-            children: [{
+const routes = [
+    //首页的最近练习
+    {
+        path: '/recent',
+        component: () =>
+            import ('../components/index/indexRecent/Recent.vue')
+    },
+    //首页的自定义课程
+    {
+        path: '/custom',
+        component: () =>
+            import ('../components/index/indexCustom/Custom.vue')
+    },
+    //首页的我的喜欢
+    {
+        path: '/mylike',
+        component: () =>
+            import ('../components/index/indexMylike/Mylike.vue')
+    },
+    {
+        path: '/',
+        component: () =>
+            import ("@/views/Home"),
+        redirect: '/index',
+        children: [{
+                path: '/index',
+                component: () =>
+                    import ("@/views/Index"),
+            },
+            {
+                path: '/sleep',
+                component: () =>
+                    import ("@/views/Sleep"),
+                children: [{
+                    // 睡眠详情页  /:id未加
+                    path: 'detail',
+                    component: () =>
+                        import ('../views/SleepDetail.vue'),
+                }]
+            }, {
+                path: '/med',
+                component: () =>
+                    import ("@/views/Meditation")
+            }, {
+                path: '/music',
+                component: () =>
+                    import ("@/views/Music")
+            }, {
                 path: '/mine',
-                redirect: '/mineinfo',
-            }, {
-                path: '/mineinfo',
                 component: () =>
-                    import ("@/components/mine/MineInfo"),
+                    import ("@/views/Mine"),
+                children: [{
+                    path: '/mine',
+                    redirect: '/mineinfo',
+                }, {
+                    path: '/mineinfo',
+                    component: () =>
+                        import ("@/components/mine/MineInfo"),
+                }, {
+                    path: '/setinfo',
+                    component: () =>
+                        import ("@/components/mine/SetInfo"),
+                }]
             }, {
-                path: '/setinfo',
+                path: '/login',
                 component: () =>
-                    import ("@/components/mine/SetInfo"),
-            }, {
-                path: '/userset',
-                component: () =>
-                    import ("@/components/mine/UserSet"),
-            }, {
-                path: '/useridea',
-                component: () =>
-                    import ("@/components/mine/UserIdea"),
-            }, {
-                path: '/openvip',
-                component: () =>
-                    import ("@/components/mine/OpenVip"),
-            }]
-        }, {
-            // 睡眠详情页  /:id未加
-            path: '/sleepdetail',
-            component: () =>
-                import ('../views/SleepDetail.vue')
-        }, {
-            path: '/login',
-            component: () =>
-                import ('@/views/Login')
-        }
-
-    ]
-}]
+                    import ('@/views/Login')
+            }
+        ]
+    }
+]
 
 const router = new VueRouter({
     routes

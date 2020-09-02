@@ -16,39 +16,47 @@ import {
     Button,
     Tabbar,
     TabbarItem,
+    Tab, Tabs,
     Field,
     Checkbox,
     CheckboxGroup,
     Cell,
     CellGroup,
-    NavBar,
     ActionSheet,
     Swipe,
     SwipeItem,
-    Tab,
-    Tabs,
     Card,
     Tag,
     PullRefresh,
     Toast,
     Icon,
+<<<<<<< HEAD
 
 } from 'vant'
 
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(NavBar);
+=======
+    NavBar,
+    Lazyload,
+    Empty
+} from 'vant'
+
+>>>>>>> master
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
+Vue.use(Tab);
+Vue.use(Tabs);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
 Vue.use(Field);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(ActionSheet);
-Vue.use(Swipe);
-Vue.use(SwipeItem);
 Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Card);
@@ -56,10 +64,15 @@ Vue.use(Tag);
 Vue.use(PullRefresh);
 Vue.use(Toast);
 Vue.use(Icon);
-Vue.use(NavBar)
+Vue.use(NavBar);
+Vue.use(Lazyload);
 
+Vue.use(NavBar);
+Vue.use(Empty);
 
 Vue.config.productionTip = false
+import('../src/assets/style/style.css')
+
 
 new Vue({
     router,

@@ -1,9 +1,15 @@
 <template>
   <div class="home">
     <router-view></router-view>
+<<<<<<< HEAD
     <van-tabbar v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
                 :safe-area-inset-bottom="true" :placeholder="true">
       <van-tabbar-item v-for="(item,index) in tabBarList" :key="index"  :to="item.to">
+=======
+    <van-tabbar route v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
+                :safe-area-inset-bottom="true" :placeholder="true" v-bind:class="{ activebgcolor: isActive==1}">
+      <van-tabbar-item v-for="(item,index) in tabBarList" :key="index" :to="item.to" >
+>>>>>>> master
         <span>{{ item.name }}</span>
         <template #icon="props">
           <img :src="props.active ? item.icon.active : item.icon.inactive"/>
@@ -32,6 +38,7 @@ export default {
   data() {
     return {
       active: 0,
+      isActive:null,
       tabBarList: [
         {
           name: '首页',
@@ -75,21 +82,26 @@ export default {
         }
       ]
     }
-  }
+  },
 }
 </script>
 
-<style scoped lang="scss">
+<style  lang="scss" scoped>
 .home {
+  height: 100%;
+
   .van-tabbar-item {
     display: flex;
+    height: 100%;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-size: 9px;
     font-weight: bold;
     img {
       width: 17.33px;
       height: 17.33px;
+      
     }
   }
 }
