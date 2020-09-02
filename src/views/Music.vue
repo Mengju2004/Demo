@@ -22,7 +22,7 @@
         </div>
      </div>
      <div class="MusicPictureBottom">
-        <div class="MusicList" v-for="item in 10">
+        <div class="MusicList" v-for="item in 10" :key="item">
            <div class="MusicListleft">
              <img src="../assets/images/img_40.png" alt="">
            </div>
@@ -72,7 +72,7 @@ data() {
   width: 375px;
   height: 217px;
   //background-color: aqua;
-  background-image:url("../assets/imges/img_40.png");
+  background-image:url("../assets/images/img_40.png");
   background-size:100%;
 }
 .MusicPicturetop{
