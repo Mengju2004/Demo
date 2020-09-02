@@ -42,7 +42,7 @@ export default {
 .hot {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  // justify-content: flex-end;
   align-items: flex-end;
   width: 349px;
 }

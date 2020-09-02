@@ -21,9 +21,9 @@ export default {
 
 <style scoped lang="scss">
 .sleeping{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: flex-end;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
