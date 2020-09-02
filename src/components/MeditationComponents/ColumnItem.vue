@@ -4,14 +4,14 @@
       {{ title }}
       <span class="more" v-if="hasMore" @click="hotClass">查看更多 &gt;</span>
     </div>
-    <div class="column-item" v-for="item in columnCourse">
+    <div class="column-item" v-for="(item,index) in columnCourse" :key="index">
       <div class="column-item-cover">
                     <img :src="item.imgUrl" alt="">
       </div>
       <div class="column-item-label">VIP</div>
       <span class="column-item-title">{{item.className}}</span>
       <span class="column-item-desc">{{item.desc}}</span>
-      <p class="column-item-footer"><span class="class-time">{{item.classTime}}</span> · <span class="class-member">{{item.member}}人练习</span>
+      <p class="column-item-footer"><span class="class-time">{{item.classTime}} 课时</span> · <span class="class-member">{{item.member}}人练习</span>
       </p>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <router-view></router-view>
     <van-tabbar route v-model="active" active-color="#5F73D5" inactive-color="#C8CBD3" :border="false" z-index="99"
                 :safe-area-inset-bottom="true" :placeholder="true" v-bind:class="{ activebgcolor: isActive==1}">
-      <van-tabbar-item v-for="(item,index) in tabBarList" :key="index" :to="item.to" @click="changeBg(index)" >
+      <van-tabbar-item v-for="(item,index) in tabBarList" :key="index" :to="item.to" >
         <span>{{ item.name }}</span>
         <template #icon="props">
           <img :src="props.active ? item.icon.active : item.icon.inactive"/>
@@ -77,17 +77,10 @@ export default {
       ]
     }
   },
-  methods:{
-    changeBg(index){
-      this.isActive=index
-      console.log(this.isActive);
-    }
-  }
-
 }
 </script>
 
-<style  lang="scss">
+<style  lang="scss" scoped>
 .home {
   height: 100%;
 

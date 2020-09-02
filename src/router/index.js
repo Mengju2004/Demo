@@ -30,42 +30,35 @@ const routes = [
         },
         {
         path: '/',
-        component: () =>
-            import ("@/views/Home"),
+        component: () => import ("@/views/Home"),
         redirect: '/index',
         children: [
             {
                 path: '/index',
-                component: () =>
-                    import ("@/views/Index"),
+                component: () => import ("@/views/Index"),
             }, 
             {
                 path: '/sleep',
-                component: () =>
-                    import ("@/views/Sleep"),
+                component: () => import ("@/views/Sleep"),
+                children: [{
+                    // 睡眠详情页  /:id未加
+                    path: 'detail',
+                    component: () =>
+                        import ('../views/SleepDetail.vue'),
+                }]
             }, {
                 path: '/med',
-                component: () =>
-                    import ("@/views/Meditation")
+                component: () => import ("@/views/Meditation")
             }, {
                 path: '/music',
-                component: () =>
-                    import ("@/views/Music")
+                component: () => import ("@/views/Music")
             }, {
                 path: '/mine',
-                component: () =>
-                    import ("@/views/Mine")
+                component: () => import ("@/views/Mine")
             }, {
-                // 睡眠详情页  /:id未加
-                path: '/sleepdetail',
-                component: () =>
-                    import ('../views/SleepDetail.vue')
-            },{
                 path: '/login',
-                component: () =>
-                    import ('@/views/Login')
+                component: () => import ('@/views/Login')
             }
-
         ]
     }
 ]
