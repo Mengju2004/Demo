@@ -47,7 +47,7 @@ const routes = [
                     import ("@/views/Sleep"),
                 children: [{
                     // 睡眠详情页  /:id未加
-                    path: 'detail',
+                    path: 'detail/:id',
                     component: () =>
                         import ('../views/SleepDetail.vue'),
                 }]

@@ -1,6 +1,6 @@
 <template>
 
-  <div class="sleep">
+  <div class="sleep" v-if="sleepshow==1">
     <!-- 头部 -->
     <header class="sleep-head">
         睡眠
@@ -8,33 +8,33 @@
     <!-- 列表部分 -->
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="refresh">
           <ul class="sleep-ul">        
-              <li v-for="(item, index) in 10" :key="index"  @click="sleepdetail">
+              <li v-for="(item, index) in sleeplist" :key="index"  @click="sleepdetail(item.id)"  :style="'background:url('+item.bgimg+');background-size: 167px 223px;'">
                 <!-- <img src="../img/img_14_极速看图.png" alt=""> -->
                 <!-- v-show判断哪个 -->
-                <span class="sleep-vip sleep-litag">VIP</span>
-                <span class="sleep-free sleep-litag">限免</span>
+                <span class="sleep-vip sleep-litag" v-show="item.type==1">VIP</span>
+                <span class="sleep-free sleep-litag" v-show="item.type==0">限免</span>
                 <div class="sleep-litext">
-                  <p class="sleep-title">睡眠故事</p>
-                  <p class="sleep-time">8<span>课时</span></p>
+                  <p class="sleep-title">{{item.title}}</p>
+                  <p class="sleep-time">{{item.classtime}}<span>课时</span></p>
                 </div>
               </li>
           </ul>
         </van-pull-refresh>
       <!-- 路由过度 -->
       <transition :name="transitionName">
-        <router-view class="view"></router-view>
+        <router-view class="view" ></router-view>
       </transition>    
   </div>
 </template>
 
 <script>
 import { Toast } from 'vant';
+import axios from 'axios'
 export default {
   data() {
     return {
-      sleeplist:[{
-
-      }],
+      sleepshow:'1',
+      sleeplist:[],
       transitionName:'',
       count: 0,
       isLoading: false,
@@ -52,11 +52,11 @@ export default {
       }
     },
   methods:{
-    sleepdetail(){
+    sleepdetail(id){
       // this.$router.push('/sleepdetail'+id)
       // this.$router.push('/sleepdetail')
       // this.$router.push('/sleep/detail'+id)
-      this.$router.push('/sleep/detail')
+      this.$router.push('/sleep/detail/'+id)
     },
     onRefresh() {
       setTimeout(() => {
@@ -64,7 +64,16 @@ export default {
         this.isLoading = false;
         this.count++;
       }, 1000);
+    },
+    async getSleepDetail() {
+      const result = await axios.get('https://www.fastmock.site/mock/92b2aa5aad657b16fceb340aca7bcd54/yimingxiang/sleeplist').then(data => data.data.result.list)
+      this.$store.commit('sleepDetail', {result})
+      console.log(result);
+      this.sleeplist=result
     }
+  },
+  mounted(){
+    this.getSleepDetail();
   }
 }
 </script>
@@ -115,7 +124,7 @@ export default {
         align-items: center;
         justify-content: center;
         font-size: 16px;
-        font-family: PingFang SC;
+        font-family: 'PingFang SC';
         font-weight: bold;
         color: #FFFEFE;
         width: 375px;
@@ -161,7 +170,7 @@ export default {
           width: 167px;
           height: 223px;
           // background: violet;
-          background: url(../assets/sleepimg/sleepimg1.png);
+          // background: url(../assets/sleepimg/sleepimg1.png);
           background-size: 167px 223px;
           border-radius: 5px;
           margin-top:14px;
@@ -181,7 +190,7 @@ export default {
             align-items: center;
             justify-content: center;
             font-size: 10px;
-            font-family: PingFang SC;
+            font-family:' PingFang SC';
             font-weight: 500;
           }
           .sleep-vip{
@@ -197,7 +206,8 @@ export default {
             bottom: 0;
             height: 60px;
             width: 100%;
-            opacity: 0.8;
+            // opacity: 0.8;
+            background: rgba(68,100 ,138, 0.8);
             border-radius: 0 0 5px 5px;
             font-size: 16px;
             // background: crimson;   

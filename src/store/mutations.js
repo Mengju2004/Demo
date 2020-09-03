@@ -11,6 +11,10 @@ const mutations = {
     },
     sleepingCourse(state, payload) {
         state.sleepCourse = payload.result
+    },
+    // 获取睡眠数据
+    sleepDetail(state, payload) {
+        state.sleepDetaillist = payload.result
     }
 }
 export default mutations

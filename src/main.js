@@ -7,13 +7,15 @@ import 'amfe-flexible'
 import './assets/style/reset.scss'
 //字体图标css引入
 import './assets/iconfont/iconfont.css'
+import './assets/iconfont2/iconfont.css'
 
 //引入vant组件
 import {
     Button,
     Tabbar,
     TabbarItem,
-    Tab, Tabs,
+    Tab,
+    Tabs,
     Field,
     Checkbox,
     CheckboxGroup,
@@ -59,7 +61,7 @@ Vue.use(NavBar);
 Vue.use(Empty);
 
 Vue.config.productionTip = false
-import('../src/assets/style/style.css')
+import ('../src/assets/style/style.css')
 
 
 new Vue({

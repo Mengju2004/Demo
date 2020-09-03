@@ -1,7 +1,8 @@
 const state = {
-    relaxCourse:[],
-    focusCourse:[],
-    habitCourse:[],
-    sleepCourse:[]
+    relaxCourse: [],
+    focusCourse: [],
+    habitCourse: [],
+    sleepCourse: [],
+    sleepDetaillist: [],
 }
 export default state
