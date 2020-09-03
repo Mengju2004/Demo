@@ -45,6 +45,12 @@ const routes = [
                 path: '/sleep',
                 component: () =>
                     import ("@/views/Sleep"),
+                children: [{
+                    // 睡眠详情页  /:id未加
+                    path: 'detail',
+                    component: () =>
+                        import ('../views/SleepDetail.vue'),
+                }]
             }, {
                 path: '/med',
                 component: () =>
@@ -56,18 +62,31 @@ const routes = [
             }, {
                 path: '/mine',
                 component: () =>
-                    import ("@/views/Mine")
-            }, {
+                    import ("@/views/Mine"),
+                children: [{
+                    path: '/mine',
+                    redirect: '/mineinfo',
+                }, {
+                    path: '/mineinfo',
+                    component: () =>
+                        import ("@/components/mine/MineInfo"),
+                }, {
+                    path: '/setinfo',
+                    component: () =>
+                        import ("@/components/mine/SetInfo"),
+                }]
+            },
+            {
                 // 睡眠详情页  /:id未加
                 path: '/sleepdetail',
                 component: () =>
                     import ('../views/SleepDetail.vue')
-            }, {
+            },
+            {
                 path: '/login',
                 component: () =>
                     import ('@/views/Login')
             }
-
         ]
     },
     {
