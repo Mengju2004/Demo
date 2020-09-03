@@ -55,7 +55,7 @@
 
 <script>
 // 引入分享组件
-import sshare from './Sleepshare'
+import sshare from '../components/share/Sleepshare'
 export default {
     props:{
         // sleeplist:Object
