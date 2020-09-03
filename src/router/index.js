@@ -12,7 +12,26 @@ VueRouter.prototype.push = function push(location) {
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+    //首页的最近练习
+    {
+        path: '/recent',
+        component: () =>
+            import ('../components/index/indexRecent/Recent.vue')
+    },
+    //首页的自定义课程
+    {
+        path: '/custom',
+        component: () =>
+            import ('../components/index/indexCustom/Custom.vue')
+    },
+    //首页的我的喜欢
+    {
+        path: '/mylike',
+        component: () =>
+            import ('../components/index/indexMylike/Mylike.vue')
+    },
+    {
         path: '/',
         component: () =>
             import ("@/views/Home"),
@@ -20,8 +39,9 @@ const routes = [{
         children: [{
                 path: '/index',
                 component: () =>
-                    import ("@/views/Index")
-            }, {
+                    import ("@/views/Index"),
+            },
+            {
                 path: '/sleep',
                 component: () =>
                     import ("@/views/Sleep"),
@@ -37,8 +57,7 @@ const routes = [{
                 path: '/mine',
                 component: () =>
                     import ("@/views/Mine")
-            },
-            {
+            }, {
                 // 睡眠详情页  /:id未加
                 path: '/sleepdetail',
                 component: () =>
