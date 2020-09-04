@@ -140,15 +140,15 @@ export default {
         width: 100%;
         background: #58A4F8;
         display: flex;
-        left: 50%;
-        transform: translate(-50%, 0);
+        // left: 50%;
+        // transform: translate(-50%, 0);
         align-items: center;
         justify-content: center;
         font-size: 13px;
         font-family:'PingFang SC';
         font-weight: bold;
         color: #FEFEFF;
-        border-radius: 40px 40px 0 0;
+        // border-radius: 40px 40px 0 0;
     } 
     // --------------------
     // --------模糊滤镜---------

@@ -8,8 +8,8 @@
     <!-- 列表部分 -->
         <van-pull-refresh v-model="isLoading" @refresh="onRefresh" class="refresh">
           <ul class="sleep-ul">        
-              <li v-for="(item, index) in sleeplist" :key="index"  @click="sleepdetail(item.id)"  :style="'background:url('+item.bgimg+');background-size: 167px 223px;'">
-                <!-- <img src="../img/img_14_极速看图.png" alt=""> -->
+              <li v-for="(item, index) in sleeplist" :key="index"  @click="sleepdetail(item.id)" >
+                <img :src="item.bgimg" alt="">
                 <!-- v-show判断哪个 -->
                 <span class="sleep-vip sleep-litag" v-show="item.type==1">VIP</span>
                 <span class="sleep-free sleep-litag" v-show="item.type==0">限免</span>
@@ -103,19 +103,15 @@ export default {
           position: absolute;
         }
         .slide-right-enter {
-          // opacity: 0;
           transform: translate3d(100%, 0, 0);
         }
         .slide-right-leave-active {
-          // opacity: 0;
           transform: translate3d(100%, 0, 0);
         }
         .slide-left-enter {
-          // opacity: 0;
           transform: translate3d(100%, 0, 0);
         }
         .slide-left-leave-active {
-          // opacity: 0;
           transform: translate3d(100%, 0, 0);
         }
       // -------------------------------------------------
@@ -130,9 +126,6 @@ export default {
         width: 375px;
         height: 44px;
         background: #292929;
-        // position: fixed;
-        // top: 0;
-        // left: 0;
       }
       // 下拉刷新css
       .refresh{
@@ -150,16 +143,6 @@ export default {
         background:#191919;
       }
       .sleep-ul{
-      //  position: absolute;
-      //   top: 43px;
-      //   left: 0;
-      //   right: 0;
-      //   // bottom 需要更改
-      //   bottom: 49px;
-      //   overflow: auto;
-      //   &::-webkit-scrollbar {
-      //       display: none;
-      //   }
         padding-bottom:14px;
         background:#191919;
         overflow: auto;
@@ -169,15 +152,17 @@ export default {
         li{
           width: 167px;
           height: 223px;
-          // background: violet;
-          // background: url(../assets/sleepimg/sleepimg1.png);
-          background-size: 167px 223px;
           border-radius: 5px;
           margin-top:14px;
           position: relative;
           img{
             width: 167px;
             height: 223px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 5px;
+
           }
           .sleep-litag{
             width: 29px;
