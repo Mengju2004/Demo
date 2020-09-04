@@ -48,8 +48,11 @@
       <div class="notvip">
           解锁全部课程
       </div>
-
-      <sshare  v-if="sharestatus" />
+      <!-- 添加过度动画 -->
+      
+      <transition name="share">
+            <sshare  v-if="sharestatus"  @closepop="closepop"/>
+      </transition>
   </div>
 </template>
 
@@ -97,6 +100,14 @@ export default {
                 this.sharestatus=false
             }
         }
+        ,
+        closepop(){
+             if(this.sharestatus==false){
+                this.sharestatus=true
+            }else{
+                this.sharestatus=false
+            }
+        }
     },
     mounted(){
         this.id=this.$route.params.id
@@ -109,18 +120,17 @@ export default {
     padding: 0;
     margin: 0;
 }
-// .s-detail::before{
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     content: '';
-//     width: 100%;
-//     height: 300px;
-//     background-image: url(../assets/sleepimg/sleepimg1.png);
-//     filter: blur(10px);
-//     background-size: cover;
-//     z-index: -1;
-// }
+// 过度动画------------------------------
+.share-enter-active {
+  transition: all 0.3s;
+}
+.share-leave-active {
+  transition: all 0.3s ;
+}
+.share-enter, .share-leave-to{
+  transform: translateX(100%);
+}
+// -------------------------------------
 .s-detail{    
     //--------解锁会员---------
     .notvip{

@@ -31,7 +31,8 @@ import {
     Icon,
     NavBar,
     Lazyload,
-    Empty
+    Empty,
+    ShareSheet
 } from 'vant'
 
 Vue.use(Tabbar);
@@ -56,7 +57,7 @@ Vue.use(Toast);
 Vue.use(Icon);
 Vue.use(NavBar);
 Vue.use(Lazyload);
-
+Vue.use(ShareSheet);
 Vue.use(NavBar);
 Vue.use(Empty);
 
