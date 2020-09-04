@@ -71,7 +71,7 @@ const routes = [
             }
         ]
     }, {
-        // 会员开头页面
+        // 会员开通页面
         path: '/openvip',
         component: () =>
             import ("@/components/mine/OpenVip"),
@@ -85,6 +85,16 @@ const routes = [
         path: '/userset',
         component: () =>
             import ("@/components/mine/UserSet"),
+    }, {
+        // 用户反馈页
+        path: '/useridea',
+        component: () =>
+            import ("@/components/mine/UserIdea"),
+    }, {
+        // 用户卡卷页
+        path: '/usercardbag',
+        component: () =>
+            import ("@/components/mine/UserCardBag"),
     }
 ]
 

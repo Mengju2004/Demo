@@ -3,9 +3,9 @@
     <div class="mine-info">
       <div class="info-warp">
         <div class="info-img" @click="setInfo">
-          <!-- <img src="../assets/images/mine/huangguan.png" alt=""> -->
+          <img src="../assets/images/mine/tx_03.png" alt="">
         </div>
-        <h2>你好</h2>
+        <h2>未登陆</h2>
         <ul>
           <li>
             <strong>0</strong>
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+
 // 引入用户点击我的选项组件
 import UserOption from '../components/mine/UserOption'
 
@@ -87,7 +88,7 @@ export default {
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        border: 2px solid blue;
+        border: 2px solid #fff;
         img{
           width: 100%;
           height: 100%;

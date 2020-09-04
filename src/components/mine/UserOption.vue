@@ -58,9 +58,10 @@ export default {
         {
           title: "我的卡卷",
           icon: qianbao,
+          to:'/usercardbag'
         },
         {
-          title: "邀请有理",
+          title: "邀请有礼",
           icon: hongbao,
         },
       ],

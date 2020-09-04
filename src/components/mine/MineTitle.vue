@@ -1,7 +1,7 @@
 <template>
     <div class="mine-header" >
     <van-nav-bar :title="title.name" left-arrow
-      @click-left="onClickLeft"
+      @click-left="onClickLeft" fixed placeholder z-index="10"
       />
     </div>
 </template>

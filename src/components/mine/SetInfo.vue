@@ -7,6 +7,7 @@
     <div class="setinfo-header">
       <div>
         <!-- 这里是头像 -->
+        <img src="../../assets/images/mine/tx_03.png" alt="">
       </div>
     </div>
     <div class="setname">
@@ -85,6 +86,11 @@ export default {
   height: 170px;
   background: #f2f3f7;
   position: relative;
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+  }
   div {
     position: absolute;
     top: 0;
@@ -95,7 +101,7 @@ export default {
     width: 80px;
     height: 80px;
     border-radius: 100%;
-    border: 2px solid red;
+    border: 2px solid #fff;
   }
 }
 .age-option,

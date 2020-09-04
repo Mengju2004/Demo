@@ -33,7 +33,12 @@ import {
     Icon,
     NavBar,
     Lazyload,
-    Empty
+    Empty,
+    CouponCell,
+    CouponList,
+    Popup,
+    Dialog,
+    ShareSheet
 } from 'vant'
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
@@ -58,7 +63,11 @@ Vue.use(Icon);
 Vue.use(NavBar);
 Vue.use(Lazyload);
 Vue.use(Empty);
-
+Vue.use(CouponCell);
+Vue.use(CouponList);
+Vue.use(Popup);
+Vue.use(Dialog);
+Vue.use(ShareSheet);
 Vue.config.productionTip = false
 import ('../src/assets/style/style.css')
 
