@@ -59,7 +59,7 @@ export default {
             background: white;
             width: 68px;
             height: 91px;
-            
+            border-radius: 8px;
         }
         .van-card__content{
             margin-left: 25px;
