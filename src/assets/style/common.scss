@@ -1,0 +1,32 @@
+// 开通会员页头部
+.open-vip {
+    .van-nav-bar {
+        background: #000;
+        .van-nav-bar__title {
+            color: #fff;
+        }
+        .van-icon-arrow-left::before {
+            color: #fff;
+        }
+    }
+}
+
+.usercardbag {
+    // 我的卡卷页 按钮
+    .btn {
+        .van-button {
+            width: 80%;
+            background: #2fa9ff;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .van-button--primary {
+            border-color: #2fa9ff;
+        }
+    }
+    .van-cell__value {
+        border: 1px solid #ccc;
+    }
+}

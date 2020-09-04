@@ -7,6 +7,8 @@
         :title="item.title"
         is-link
         :icon="item.icon"
+        :to="item.to"
+
       />
     </div>
     <div class="mine-list">
@@ -16,6 +18,7 @@
         :title="item.title"
         is-link
         :icon="item.icon"
+        :to="item.to"
       />
     </div>
     <div class="mine-list">
@@ -25,6 +28,7 @@
         :title="item.title"
         is-link
         :icon="item.icon"
+        :to="item.to"
       />
     </div>
   </div>
@@ -49,13 +53,15 @@ export default {
         {
           title: "开通会员",
           icon: Wode,
+          to:'/openvip'
         },
         {
           title: "我的卡卷",
           icon: qianbao,
+          to:'/usercardbag'
         },
         {
-          title: "邀请有理",
+          title: "邀请有礼",
           icon: hongbao,
         },
       ],
@@ -81,13 +87,17 @@ export default {
         {
           title: "意见反馈",
           icon: xing,
+          to:'/useridea'
         },
         {
           title: "设置",
           icon: shezhi,
+          to:'/userset'
         },
       ],
     };
+  },methods: {
+    
   },
 };
 </script>

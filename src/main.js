@@ -5,6 +5,9 @@ import store from './store'
 import 'amfe-flexible'
 //公共重置样式
 import './assets/style/reset.scss'
+// 组件修改样式
+import './assets/style/common.scss'
+
 //字体图标css引入
 import './assets/iconfont/iconfont.css'
 import './assets/iconfont2/iconfont.css'
@@ -32,9 +35,12 @@ import {
     NavBar,
     Lazyload,
     Empty,
+    CouponCell,
+    CouponList,
+    Popup,
+    Dialog,
     ShareSheet
 } from 'vant'
-
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
@@ -60,7 +66,11 @@ Vue.use(Lazyload);
 Vue.use(ShareSheet);
 Vue.use(NavBar);
 Vue.use(Empty);
-
+Vue.use(CouponCell);
+Vue.use(CouponList);
+Vue.use(Popup);
+Vue.use(Dialog);
+Vue.use(ShareSheet);
 Vue.config.productionTip = false
 import ('../src/assets/style/style.css')
 
