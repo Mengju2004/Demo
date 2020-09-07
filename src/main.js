@@ -13,7 +13,8 @@ import {
     Button,
     Tabbar,
     TabbarItem,
-    Tab, Tabs,
+    Tab,
+    Tabs,
     Field,
     Checkbox,
     CheckboxGroup,
@@ -27,7 +28,9 @@ import {
     Toast,
     Icon,
     NavBar,
-    Lazyload
+    Lazyload,
+    Popup,
+    ActionSheet,
 } from 'vant'
 
 Vue.use(Tabbar);
@@ -53,10 +56,12 @@ Vue.use(Toast);
 Vue.use(Icon);
 Vue.use(NavBar);
 Vue.use(Lazyload);
+Vue.use(Popup);
+Vue.use(ActionSheet);
 
 
 Vue.config.productionTip = false
-import('../src/assets/style/style.css')
+import ('../src/assets/style/style.css')
 
 
 new Vue({

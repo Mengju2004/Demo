@@ -1,9 +1,11 @@
 <template>
-  <div class="music">
+ <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+  <!-- <div class="music"> -->
+   
      <div class="MusicPicture">
-       <!-- <img src="../assets/imges/img_40.png" alt=""> -->
+       <!-- <img src="../assets/images/img_40.png" alt=""> -->
      </div>
-       <div class="MusicPicturetop" @click="translate">
+     <div class="MusicPicturetop" @click="translate" >
         <div class="MusicList">
            <div class="MusicListleft">
            <img src="../assets/images/img_40.png" alt="">
@@ -12,17 +14,17 @@
              <div class="Playkeyleft">
                <p>
                 <span class="Playkeyname">最近收听</span>
-                <!-- <span class="FreeAdmission">免费</span> -->
+                <span class="FreeAdmission">免费</span>
                </p>
                 <p class="describe">大自然白噪音</p>
              </div>
-             <div class="triangle"></div>
+             <div class="triangle"  @click="PlayOrNot(Playback)" v-if="Playback"></div>
              <div class="Locationline"></div>
            </div>
         </div>
      </div>
      <div class="MusicPictureBottom">
-        <div class="MusicList" v-for="item in 10" :key="item">
+        <div class="MusicList" v-for="item in 10" @click="translate" :key="item">
            <div class="MusicListleft">
              <img src="../assets/images/img_40.png" alt="">
            </div>
@@ -31,43 +33,89 @@
                <p>
                 <span class="Playkeyname">雨打树叶</span>
                 <!-- <span class="FreeAdmission">免费</span> -->
-                <img src="../assets/images/1.png" alt="">
+                <img src="../assets/images/1.png" v-if="ifPicture" alt="">
+                <img src="../assets/images/img_46.png" v-if="ifPicture===false" alt="">
                </p>
                 <p class="describe">大自然白噪音</p>
              </div>
-             <div class="triangle"></div>
+             <div class="triangle"  @click="PlayOrNot(Playback)" v-if="Playback"></div>
+              <div class="suspend" @click="PlayOrNot(Playback)" v-if="Playback===false"></div>
              <div class="Locationline"></div>
            </div>
         </div>
      </div>
-  </div>
+  <!-- </div> -->
+   </van-pull-refresh>
 </template>
 
 <script>
+import { Toast } from 'vant';
+import BScroll from 'better-scroll'
 export default {
 data() {
   return {
-    
+    ifPicture:true,
+    Playback:true,
+     isLoading: false,
+      tiaozhuan:[{
+         path:'detail',
+        component: () =>
+        import ("@/views/MusicDetail"),
+        name:'detail'
+     }],
   }
 },
- methods: {
-   translate(){
-    
-   },
+ beforeUpdate() {
+   musicscrollfn()
  },
+ methods: {
+   translate(){ 
+      this.$router.push('/musicdetail')
+     },
+   PlayOrNot(Play){
+     this.Playback=!Play;
+   },
+   onRefresh() {
+      setTimeout(() => {
+        Toast('刷新成功');
+        this.isLoading = false;
+        // this.count++;
+      }, 1000);
+    },
+    musicscrollfn(){
+      this.$nextTick(()=>{
+      //下拉刷新
+      let musicscroll=new BScroll('.van-pull-refresh',{
+        eventPassthrough:'horizontal',
+        click: true,
+        pullUpLoad: true
+      })
+      //监听上拉刷新
+         openappscroll.on('pullingUp',()=>{
+           openappscroll.finishPullUp()
+         })
+      })
+    }
+  },
 }
 </script>
 
 <style scoped lang="scss">
-// @import '../assets/imges'
-.music{
+// @import '../assets/images'
+.van-pull-refresh{
   width:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:50px ;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+ // align-items: center;
   background-color:#fff;
-  margin-bottom:50px;
-}
+ // margin-bottom:50px;
 .MusicPicture{
   width: 375px;
   height: 217px;
@@ -86,6 +134,8 @@ data() {
   background-color:#fcf6f6;
   position: relative;
   top:-25px;
+  left:50%;
+  transform:translateX(-50%);
   .MusicList{
     width:100%;
     height:100%;
@@ -120,7 +170,7 @@ data() {
           display: flex;
           align-items: center;
           margin:0px;
-         margin-bottom:5px;
+          margin-bottom:5px;
           .Playkeyname{
           font-size:10px;
           color:#C5C5C9;
@@ -133,7 +183,7 @@ data() {
        }
        .describe{
           font-size:16px;
-         color:#263663;
+          color:#263663;
           margin:0px;
        }
      }
@@ -144,6 +194,13 @@ data() {
        margin-right:20px;
        background-color: blue;
      }
+       .suspend{
+        justify-self:end;
+       width:20px;
+       height:20px;
+       margin-right:20px;
+       background-color: red;
+       }
     }
   }
 }
@@ -178,6 +235,9 @@ data() {
      .Playkeyleft{
        height:100%;
        flex:1;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
        margin-left:12px;
         p{
           margin-bottom:5px;
@@ -210,6 +270,13 @@ data() {
        margin-right:20px;
        background-color: blue;
      }
+       .suspend{
+          justify-self:end;
+       width:20px;
+       height:20px;
+       margin-right:20px;
+       background-color: red;
+       }
      .Locationline{
        position:absolute;
        right:0;
@@ -220,5 +287,6 @@ data() {
      }
     }
   }
+}
 }
 </style>

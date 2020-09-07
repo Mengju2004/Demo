@@ -4,6 +4,7 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 //import HelloWorld from '@/components/HelloWorld'
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -17,8 +18,7 @@ const routes = [{
     component: () =>
         import ("@/views/Home"),
     redirect: '/index',
-    children: [
-        {
+    children: [{
             path: '/index',
             component: () =>
                 import ("@/views/Index")
@@ -33,8 +33,14 @@ const routes = [{
         }, {
             path: '/music',
             component: () =>
-                import ("@/views/Music")
-        }, {
+                import ("@/views/Music"),
+        },
+        {
+            path: '/musicdetail',
+            component: () =>
+                import ("@/views/MusicDetail"),
+        },
+        {
             path: '/mine',
             component: () =>
                 import ("@/views/Mine")
@@ -44,7 +50,7 @@ const routes = [{
             path: '/sleepdetail',
             component: () =>
                 import ('../views/SleepDetail.vue')
-        },{
+        }, {
             path: '/login',
             component: () =>
                 import ('@/views/Login')

@@ -1,5 +1,5 @@
 const mutations = {
-    changeMeditationPage(state,payload){
+    changeMeditationPage(state, payload) {
         state.meditationPage = payload
     }
 }
