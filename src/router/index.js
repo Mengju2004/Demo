@@ -4,6 +4,7 @@
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 //import HelloWorld from '@/components/HelloWorld'
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -59,7 +60,12 @@ const routes = [
                 path: '/music',
                 component: () =>
                     import ("@/views/Music")
-            }, {
+            },{
+                path: '/musicdetail',
+                component: () =>
+                    import ("@/views/MusicDetail"),
+            },
+             {
                 path: '/mine',
                 component: () =>
                     import ("@/views/Mine"),

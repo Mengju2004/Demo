@@ -54,8 +54,6 @@ Vue.use(CheckboxGroup);
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(ActionSheet);
-Vue.use(Tab);
-Vue.use(Tabs);
 Vue.use(Card);
 Vue.use(Tag);
 Vue.use(PullRefresh);
@@ -64,13 +62,13 @@ Vue.use(Icon);
 Vue.use(NavBar);
 Vue.use(Lazyload);
 Vue.use(ShareSheet);
-Vue.use(NavBar);
 Vue.use(Empty);
 Vue.use(CouponCell);
 Vue.use(CouponList);
-Vue.use(Popup);
 Vue.use(Dialog);
-Vue.use(ShareSheet);
+Vue.use(Popup);
+
+
 Vue.config.productionTip = false
 import ('../src/assets/style/style.css')
 

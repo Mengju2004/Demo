@@ -15,6 +15,9 @@ const mutations = {
     // 获取睡眠数据
     sleepDetail(state, payload) {
         state.sleepDetaillist = payload.result
+    },
+    changeMeditationPage(state, payload) {
+        state.meditationPage = payload
     }
 }
 export default mutations
